@@ -33,3 +33,17 @@ cacheSolve <- function(x, ...) {
     x$setinvm(invm)
     invm
 }
+
+## This code is used to test the functions that we created
+
+## Create a special matrix object
+m_cacheable <- makeCacheMatrix(matrix(c(4, 3, 3, 2), nrow=2, ncol=2))
+m$get()
+
+## Create an inverse of the matrix
+m_inverted <- cacheSolve(m_cacheable)
+m_inverted
+
+## Make sure that matix multiplication produces an identity matrix
+m_identity <- m_cacheable$get() %*% m_inverted
+m_identity
